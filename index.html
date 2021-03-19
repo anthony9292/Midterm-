@@ -6,159 +6,39 @@
     <meta name="viewport" content="width=divice-width,  inital-scale=1.0">
     <title>Coding Quiz</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
+ <link rel="stylesheet" type="text/css" href="./assets/style.css" />
 </head>
 <body>
-    <header>
-        <div class= "large-font"><h2>Online Coding Quiz</h2></div>
-        <br>
-        <br>
-       <p><a href="#game" id="start-button" class="btn btn-success">Start Quiz</a></p>
-    </header>
+  <nav class = "navbar navbar-expand-md fixed-top">
+  <div class = "container- fluid">
+  <div id = "highscore" class = "nave-item nav-link">FINAL Score</div>
+ <h1 id= navbar-title>Semester Java Quiz</h1> 
+ <table id= timer style="visibility: hidden;">
+ <tr> 
+    <td>Time Left:</td>
+    <td><span id = "quztimer" class =nav-item></span></td>
+ </tr> 
+</table>
+  </div>
 
-<main>
+  </nav>
 
-    <div id ="game">
-       <div class="game-grid">
-         <p id= "timer" class="timer">
+<div class = "container-fluid">
+  <section id="details"></section>
+</div>
 
-            1:00:00
-        </p>
-        <div class="game-left-col">
-            <div class = "gauge-container"
-            style="background: #ffffff"
-            background-size: 100px 100px>
-             <canvas id="guage"
-              class="guage"
-             width="240" height="240">
-              </canvas>
-                    <div class="score-number">0
-                    </div>
-            </div>
-        </div>
+<div class="navbar fixed-bottom footer">
+<div class="footer-text">Prof.Ndegwa
+
+</div>
+</nave>
+
+<script src= "assets/script.js"></script>
+
+
     </div>
-<div class="game-right-col"> 
-   <div class="questions">
-   <div class="question">
-              <p><span class="number">1</span>
-                <span class="questionText">HTML stands for?
-
-              </span>
-            
-            </p>
-             <div class="answers">
-              
-            <label><input type="button"
-                          class="answers" data-correct="false">
-                          <span class="text">A.Hyper Text Markup Language
-
-                          </span>
-            </label>
-            <label><input type="button"
-                class="answers" data-correct="false">
-                <span class="text">B.High Text Markup Language
-
-                </span>
-            </label>
-    
-            <label><input type="button"
-               class="answers" data-correct="false">
-                <span class="text">C.Hyper Tabular Markup Language
-
-                </span>
-            </label>
-   </div>
-   </div> 
-   <div class="question">
-    <p><span class="number">2</span>
-      <span class="questionText">which of the following tag is used to mark a begining of paragraph?
-
-    </span>
-  
-  </p>
-   <div class="answers">
-    
-  <label><input type="button"
-                class="answers" data-correct="false">
-                <span class="text">A.<LD>
-  </label>
-  <label><input type="button"
-      class="answers" data-correct="false">
-      <span class="text">B.<br>
-
-      </span>
-  </label>
-
-  <label><input type="button"
-     class="answers" data-correct="false">
-      <span class="text">C.<P>
-
-      </span>
-  </label>
-</div>
-</div> 
-  
-<div class="question">
-    <p><span class="number">3</span>
-      <span class="questionText">The attribute of <form> tag?
-
-    </span>
-  
-  </p>
-   <div class="answers">
-    
-  <label><input type="button"
-                class="answers" data-correct="false">
-                <span class="text">A. Method
-                </span>
-  </label>
-  <label><input type="button"
-      class="answers" data-correct="false">
-      <span class="text">B.Action
-
-      </span>
-  </label>
-
-  <label><input type="button"
-     class="answers" data-correct="false">
-      <span class="text">C. Both (a)&(b)
-
-      </span>
-  </label>
-</div>
-</div> 
-</div>
-<div id="game-end-times-up">
-    <p id="time-out-text" class="game-end-text"></p>
-    <form> 
-     <dive class="form-group">
-     <label for="initials1">Participant initials</label>
-     <input type="initials" class="form-control" id="exampleinitials1" aria-describedby="initialshelp" placeholder="Enter initials">
-     <small id="initialshelp" class="form-text text muted">Please input initials above and hit save</small>
-    </dive>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <div id="game-end">
-        <p id="game-end-text" class="game-end-text"></p>
-      </div>
- <div id="progress-bar" class="progress-bar"> 
-     <div class="indicator current"></div>
-     <div class="indicator"></div>
-     <div class="indicator"></div>
-     <div class="indicator"></div>
- </div>
-</div>
-</div>
 
 
 
-</main>
-<link rel="stylesheet" type="text/css" href="//www.fedex.com/css/t2/global-wrapper-min.css" id="globalCSS" />
-<script type="text/javascript" src="//images.fedex.com/templates/components/libraries/1.0/jQuery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="//www.fedex.com/templates/components/javascript/v2/fx-master-responsive.js"></script>
-<script src="./assets/script.js"></script>
 
-</body>
-</html>
+   </main>
