@@ -9,36 +9,39 @@
  <link rel="stylesheet" type="text/css" href="./assets/style.css" />
 </head>
 <body>
-  <nav class = "navbar navbar-expand-md fixed-top">
-  <div class = "container- fluid">
-  <div id = "highscore" class = "nave-item nav-link">FINAL Score</div>
- <h1 id= navbar-title>Semester Java Quiz</h1> 
- <table id= timer style="visibility: hidden;">
- <tr> 
-    <td>Time Left:</td>
-    <td><span id = "quztimer" class =nav-item></span></td>
- </tr> 
-</table>
-  </div>
-
+  <nav class = "navbar navbar-light bg-light">
+    <a href = "#" id="highscore-link" class="navbar-text float-left">High Score</a>
+    <span class= "navbar-text float-right">Time:<span id= "timer">0</span></span>
   </nav>
-
+  <div class = "container" class="start-page mt-5">
+   <span id= "title" class="h1">Semester Java Quiz</span> 
+    <p id= "text">answer all the questions.if you get it wrong you will lose 10 seconds off the timer.
+    <br />
+    <br /> 
+    input you're initials at the end and save you're score among the elites.
+  </p>
+<button aria-label="start-game" id="start-button" class="button">PRESS TO START</button>
+<div id= "quiz-answers">
+  <button class="answer-button"></button>
+  <button class="answer-button"></button>
+  <button class="answer-button"></button>
+  <button class="answer-button"></button>
+</div>
+<div id="input-field">
+   <label for="initials">ENTER INITIALS:</label> 
+   <input type="text" name="initials" id ="initials" placeholder="ex.an" />
+</div>
+<div id ="answer-messege"></div>
+</div>
 <div class = "container-fluid">
   <section id="details"></section>
 </div>
 
 <div class="navbar fixed-bottom footer">
 <div class="footer-text">Prof.Ndegwa
-
 </div>
-</nave>
+</div>
 
 <script src= "assets/script.js"></script>
-
-
-    </div>
-
-
-
-
-   </main>
+</body>
+</html>
