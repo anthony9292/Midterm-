@@ -115,7 +115,7 @@ function checkAnswer(event) {
     }, 800);
 
     //funtion to make game end after 5 questions
-    if (currentQuestion == question.length) {
+    if (currentQuestion === questions.length) {
       endGame();
 
       //function if it hasn't reached 5 go to next question
@@ -125,7 +125,7 @@ function checkAnswer(event) {
 
     //function if answered incorrect decrease time and move on to next question
   } else {
-    currentQuestion++;
+    currentQuestion ++;
     answerMessage.style.display = 'block';
     answerMessage.textContent = 'incorrect!';
     answerMessage.className = 'answer-message';
@@ -158,7 +158,7 @@ function endGame() {
   title.setAttribute('class', 'h2');
   text.setAttribute('style', 'border-top: 0');
   text.removeAttribute('class');
-  text.textContent = 'Final score is  ' + score + '. Enter initials to see high score table';
+  text.textContent = 'Final score is  ' + score + '. Enter initials to see high score table!';
   inputFields.style.display = 'block';
 
 //changes display page if u ran out of time or not 
@@ -184,7 +184,7 @@ function storeHighScore(event) {
   } else {
     newScore = {
       userName: initials.value.trim(),
-      userScore: score,
+      userScore: score 
     };
     scoreArray.push(newScore);
     //sorts scores so that highest score is always 1st 
@@ -238,7 +238,7 @@ function seeHighScores() {
 
 //outputs new li for each highscore 
   for (i = 0; i < scoreArray.length; i++) {
-    let score = scoreArray[i].userName + ': ' + scoreArray[i].userName;
+    let score = scoreArray[i].userName + ' : ' + scoreArray[i].userScore;
 
     li = document.createElement('li');
     li.textContent = score;
