@@ -19,6 +19,42 @@ let score = 0;
 let scoreArray = [];
 let timerInterval = false;
 
+let questions = [ 
+  {
+title: "What is the HTML tag under which one can write the JavaScript code?",
+choices: ["<javascript>","<scripted>","<script>","<js>"],
+answer:"<script>"
+},
+
+{
+title:"Which of the following is the correct syntax to display “GeeksforGeeks” in an alert box using JavaScript?",
+choices:["alertbox(“GeeksforGeeks”);","msg(“GeeksforGeeks”);","msgbox(“GeeksforGeeks”);","alert(“GeeksforGeeks”);"],
+answer:"alert(“GeeksforGeeks”);"
+  },
+{
+title: "What is the correct syntax for referring to an external script called “geek.js”?",
+choices:["<script src=”geek.js”>","<script href=”geek.js”>","<script ref=”geek.js”>","<script name=”geek.js”>"],
+answer:"<script src=”geek.js”>"
+},
+
+{
+title: "Which of the following is not a reserved word in JavaScript?",
+choices:["interface","throws","program","short"],
+answer:"program"
+  },
+      
+{
+title: " What is the syntax for creating a function in JavaScript named as Geekfunc?",
+choices:["function = Geekfunc() ","function Geekfunc(); ","function := Geekfunc() ","function : Geekfunc()q"],
+answer:"function Geekfunc() "
+      },
+{
+title: "How to write an ‘if’ statement for executing some code. ",
+choices:[" if(i<>5) ", " if i<>5 ", " if(i!=5) ", "D) if i!=5"], 
+answer: "if(i!=5) "
+}
+]
+
 //starts quiz
 function startQuiz() {
   timerSecs = 50;
@@ -32,24 +68,26 @@ nextQuestion();
 
 startButton.style.display = 'none';
 }
+
+
 // changes to next question
 function nextQuestion() {
-  //changes the appearence of the page
+  //changes the appearance of the page
   container.className = 'results-page mt-5';
   title.textContent = 'Question ' + (currentQuestion + 1);
-  title.setAttribute('class', 'h2');
-  text.textContent = question[currentQuestion].title;
+  title.setAttribute('class', 'h2')
+  text.textContent = questions[currentQuestion].title;
   text.className = 'h4';
-  text.setAttribute('style','border-top: 1xp double #00093, padding-top: 20px')
+  text.setAttribute('style', 'border-top: 1xp double #00093; padding-top: 20px;')
 
   //displays the answer button
   quizAnswers.style.display = 'block';
 
   //takes answers form questions.js, and assigns them one by one to answerButton.
-  answerButton[0].textContent = question[currentQuestion].choices[0];
-  answerButton[1].textContent = question[currentQuestion].choices[1];
-  answerButton[2].textContent = question[currentQuestion].choices[2];
-  answerButton[3].textContent = question[currentQuestion].choices[3];
+  answerButton[0].textContent = questions[currentQuestion].choices[0];
+  answerButton[1].textContent = questions[currentQuestion].choices[1];
+  answerButton[2].textContent = questions[currentQuestion].choices[2];
+  answerButton[3].textContent = questions[currentQuestion].choices[3];
 
   for (i = 0; i < answerButton.length; i++) {
     answerButton[i].addEventListener('click', checkAnswer);
@@ -60,10 +98,10 @@ function nextQuestion() {
 function checkAnswer(event) {
   //checks if button/answer values are the same
   console.log('User chose : ' + event.target.textContent);
-  console.log('Correct answer:' + question[currentQuestion].answer);
+  console.log('Correct answer:' + questions[currentQuestion].answer);
 
   //checks if selected question is correct and increases the score
-  if (event.target.textContent === question[currentQuestion].answer) {
+  if (event.target.textContent === questions[currentQuestion].answer) {
     answerMessage.style.display = 'block';
     answerMessage.textContent = 'Correct!';
     answerMessage.className = 'answer-message';
@@ -97,28 +135,27 @@ function checkAnswer(event) {
     }, 800);
 
     //ends game if timer is less then 5 seconds.
-    if (timerSecs < 5) {
-      timerSecs -= 5;
+    if (timerSecs < 10) {
+      timerSecs -= 10;
       endGame();
       // ends the game if on last question.
     } else if (currentQuestion === 5) {
       endGame();
       //subtracts remaining time and moves on to the next question
     } else {
-      timerSecs -= 5;
+      timerSecs -= 10;
       nextQuestion();
-    }
+    };
   }
-}
+};
 
 function endGame() {
   quizAnswers.style.display = 'none';
   container.className = 'quiz-page mt-5';
-  title.setAttribute('class,h2');
+  title.setAttribute('class', 'h2');
   text.setAttribute('style', 'border-top: 0');
   text.removeAttribute('class');
-  text.textContent =
-    'Score' + score + '.Enter initials to see high score table';
+  text.textContent = 'Final score is  ' + score + '. Enter initials to see high score table';
   inputFields.style.display = 'block';
 
   if (timerSecs <= 0) {
@@ -163,7 +200,6 @@ function loadHighScore() {
 
 function seeHighScores() { 
  if(timerInterval) { 
-
  clearInterval(timerInterval);
 
  };
@@ -208,10 +244,10 @@ function seeHighScores() {
 //countdown timer(starts at timersecs)
 function countdown() {
   timerInterval = setInterval(function () {
-    timerSecs--;
+    timerSecs --;
     timerDisplay.textContent = timerSecs;
 
-    if (timerSecs > 1) {
+    if (timerSecs < 1) {
       timerDisplay.textContent = 0;
       endGame();
       clearInterval(timerInterval);
