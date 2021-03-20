@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=divice-width,  inital-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
  <title>Coding Quiz</title>
 </head>
 
 <body>
   <nav class = "navbar navbar-light bg-light">
-    <a href = "#" id="highscore-link" class="navbar-text float-left">High Score</a>
-    <span class= "navbar-text float-right">Time:<span id= "timer">0</span></span>
+    <a href ="#" id="highscores-link" class="navbar-text float-left">High Score</a>
+    <span class="navbar-text float-right">Time: <span id="timer">0</span></span>
   </nav>
-  <div class = "container" class="start-page mt-5">
+  <div id="container" class="start-page mt-5">
    <span id="title" class="h1"> Javascript Quiz</span> 
-    <p id= "text">Answer all the questions. If you get it wrong you will lose 10 seconds off the timer.
+    <p id="text">Answer all the questions. If you get it wrong you will lose 10 seconds off the timer.
     <br />
     <br /> 
     Input you're initials at the end and save you're score among the elites.
@@ -32,8 +32,9 @@
 <div id="input-field">
    <label for="initials">ENTER INITIALS:</label> 
    <input type="text" name="initials" id ="initials" placeholder="ex.an" />
+   <button id="submit-button">Submit</button> 
 </div>
-<div id ="answer-message"></div>
+<div id="answer-message"></div>
 </div>
 <div class="footer-basic">
         <footer>
@@ -51,6 +52,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 |<script src="/assets/questions.js" type="text/javascript"></script>
-<script src= "assets/script.js" type="text/javascript"></script>
+<script src="assets/script.js" type="text/javascript"></script>
 </body>
 </html>
