@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+/**body**/
+
 body {
   margin: auto;
 }
@@ -10,6 +12,7 @@ p {
   margin: 15px 0;
 }
 
+/**buttun styling**/
 button {
   background-color: rgb(1, 1, 43);
   color: white;
@@ -75,7 +78,7 @@ li {
 display: none;
 width: 100%;
 font-style: initial;
-color: rgb(49, 49, 49);
+color: rgb(54, 54, 54);
 }
 
 #input-field {

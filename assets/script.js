@@ -19,6 +19,7 @@ let score = 0;
 let scoreArray = [];
 let timerInterval = false;
 
+//javascript questions
 let questions = [ 
   {
 title: "What is the HTML tag under which one can write the JavaScript code?",
@@ -149,7 +150,9 @@ function checkAnswer(event) {
   }
 };
 
+//opens end game page 
 function endGame() {
+  //changes page 
   quizAnswers.style.display = 'none';
   container.className = 'quiz-page mt-5';
   title.setAttribute('class', 'h2');
@@ -158,38 +161,48 @@ function endGame() {
   text.textContent = 'Final score is  ' + score + '. Enter initials to see high score table';
   inputFields.style.display = 'block';
 
+//changes display page if u ran out of time or not 
   if (timerSecs <= 0) {
     title.textContent = 'out of time';
   } else {
     title.textContent = 'finished';
   }
 
+  //when button is clicked saves initials 
+  //brought to high score list page 
   submitButton.addEventListener('click', storeHighScore);
 }
 
+//stores initials and puts it in local storage
+//then takes user to high score page 
 function storeHighScore(event) {
   event.preventDefault();
 
   if (initials.value.length === 0) {
     return;
+    //initial/score combo pushed to score array 
   } else {
     newScore = {
       userName: initials.value.trim(),
       userScore: score,
     };
     scoreArray.push(newScore);
+    //sorts scores so that highest score is always 1st 
     scoreArray.sort((a, b) => b.userScore - a.userScore);
 
+    //array made into string and pushed to local storage 
     localStorage.setItem('score', JSON.stringify(scoreArray));
-
+ //user is taken to high score page 
     seeHighScores();
   }
 }
 
+//loads scores from local storage into scores array 
 function loadHighScore() {
+
  storedScores = JSON.parse(localStorage.getItem('score'));
 
- // saves into array if score isn't empty 
+ // saves into array if score isn't empty(no previous tries)
  if (storedScores !== null) {
      scoreArray = storedScores;
 
@@ -204,7 +217,7 @@ function seeHighScores() {
 
  };
 
-
+// creates a new list and button elements and apends them to container 
   container.className = 'score-page mt-5 card bg-light p-4';
   let ul = document.createElement('ul');
   let returnButton = document.createElement('button');
@@ -214,7 +227,7 @@ function seeHighScores() {
   container.appendChild(ul);
   container.appendChild(returnButton);
   container.appendChild(clearButton);
-
+//removes navbar 
   startButton.style.display = 'none';
   navBar.style.visibility = 'hidden';
   title.textContent = 'High Scores';
@@ -223,6 +236,7 @@ function seeHighScores() {
   quizAnswers.style.display = 'none';
   inputFields.style.display = 'none';
 
+//outputs new li for each highscore 
   for (i = 0; i < scoreArray.length; i++) {
     let score = scoreArray[i].userName + ': ' + scoreArray[i].userName;
 
@@ -241,18 +255,18 @@ function seeHighScores() {
   });
 }
 
-//countdown timer(starts at timersecs)
+//countdown timer(starts from starting timersecs)
 function countdown() {
   timerInterval = setInterval(function () {
     timerSecs --;
     timerDisplay.textContent = timerSecs;
-
+//alert that user has ran out of time if no time is on the timer
     if (timerSecs < 1) {
       timerDisplay.textContent = 0;
       endGame();
       clearInterval(timerInterval);
     }
-
+//cleears timer if questions hit 5(max game is over )
     if (currentQuestion === 5) {
       timerDisplay.textContent = timerSecs;
       clearInterval(timerInterval);
@@ -260,7 +274,7 @@ function countdown() {
   }, 1000);
 }
 
-
+//prevents outline showing unless keyboard user 
 function handleFirstTab(e) { 
 
 if (e.keyCode  === 9) { 
@@ -280,5 +294,5 @@ loadHighScore();
 // even listener when you click the start button 
 startButton.addEventListener('click', startQuiz); 
 
-
+//even listener for when you click highscore link in navbar
 highscoreLink.addEventListener('click', seeHighScores);
